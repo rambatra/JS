@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="number" id="ab" placeholder="Enter a Number">
+<input type="number" id="ac" placeholder="Enter a Number">
+<button id="ad" onclick="add()">+</button>
+<button id="af" onclick="subt()">-</button>
+<button id="ag" onclick="divi()">/</button>
+<div id="am"></div>
+   <script>
+function add(){
+    let a= Number(document.getElementById('ab').value)
+    let b= Number(document.getElementById('ac').value)
+    let c=(a+b)
+document.getElementById('am').innerHTML=c;
+}
+function subt(){
+    let a= Number(document.getElementById('ab').value)
+    let b= Number(document.getElementById('ac').value)
+    let c=(a-b);
+    document.getElementById('am').innerHTML=c;
+}
+function divi(){
+    let a= Number(document.getElementById('ab').value)
+    let b= Number(document.getElementById('ac').value)
+    let c=(a/b);
+    document.getElementById('am').innerHTML=c;
+}
+   </script> 
+</body>
+</html>

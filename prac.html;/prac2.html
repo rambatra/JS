@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" id="aa" placeholder="Enter Task">
+<button id="bb" onclick="dd()">Add Task</button>
+<ul id="cc"></ul>
+    <script>
+function dd(){
+let ee=document.getElementById('aa');
+let ff= ee.value.trim();
+if(ff!==""){
+    let gg= document.createElement('li')
+    gg.textContent=ff;
+    document.getElementById('cc').appendChild(gg);
+aa.value=" ";
+return false;
+}
+else{
+    true;
+}
+
+}
+
+    </script>
+</body>
+</html>
