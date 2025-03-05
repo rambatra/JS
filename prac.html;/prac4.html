@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Main container styling */
+        #main {
+            height: 100px;
+            width: 350px;
+            background: linear-gradient(45deg, #FF6A00, #FFB100);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Sub container for time */
+        #sub {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: white;
+        }
+
+        /* Individual time elements */
+        #sub span {
+            margin: 0 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Styling for the time parts */
+        #a, #b, #c {
+            font-size: 48px;
+            color: #FFEB3B;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Effects on hover */
+        #sub span:hover {
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="sub">
+            <span id="a">00</span>
+            <span>:</span>
+            <span id="b">00</span>
+            <span>:</span>
+            <span id="c">00</span>
+        </div>
+    </div>
+    <script>
+        function start(){
+            let current = new Date();
+            document.getElementById('a').innerHTML = (current.getHours() < 10 ? "0" : "") + current.getHours();
+            document.getElementById('b').innerHTML = (current.getMinutes() < 10 ? "0" : "") + current.getMinutes();
+            document.getElementById('c').innerHTML = (current.getSeconds() < 10 ? "0" : "") + current.getSeconds();
+        }
+        setInterval(start, 1000);
+        start();
+    </script>
+</body>
+</html>
