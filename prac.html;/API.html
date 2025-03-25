@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <div id="ab"></div>
+    <script>
+        let bc= fetch("https://jsonplaceholder.typicode.com/posts") 
+bc.then(value=>{
+    return value.json(value)
+}).then(value1=>{
+    let cd= value1;
+    let de=" ";
+    cd.map((x)=>{
+de+=
+`<div id="ef">
+    <h1 id="fg">${x.id}</h1>
+     <h2 id="gh">${x.title}</h2>
+     <h3 id="hi">${x.body}</h3>
+    
+    </div>`
+    })
+    document.getElementById('ab').innerHTML= de
+})
+    </script>
+</body>
+</html>
