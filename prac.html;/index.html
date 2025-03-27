@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #ab{
+ padding: 10px;
+        margin-left: 10%;
+    }
+    #ac{
+        font-size: 30px;
+       padding: 10px;
+       border-radius: 5px;
+    }
+    #rt{
+        border-radius: 6px;
+        background-color: white;
+        color: black;
+        margin-left: 23%;
+        font-weight: lighter;
+        border:1px solid black;
+        font-size: 20px;
+    }
+    #rt:hover{
+        background-color: black;
+        color: white;
+    }
+ #main{
+    display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+            gap: 80px; /* Space between cards */
+            margin-top: 9cap;
+ }
+ .aa{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    width: 14%; /* Approximately 4 cards per row */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            /* text-align: center;
+            transition: transform 0.3s ease; */
+ }
+  .df{
+   padding-left: 30px;
+   font-size: 30px;
+   font-weight: bold;
+   
+  }
+  #dd{
+    padding-left: 20px;
+  }
+.we{
+    padding-left: 90px;
+   font-size: 20px;
+   font-weight: bold;
+   color: green;
+}
+</style>
+<body>
+<div id="ab">
+    <button id="ac" onclick="men()">men</button>
+    <button id="ac" onclick="women()">women</button>
+    <button id="ac" onclick="kids()">kids</button>
+</div>
+<div id="main"></div>
+
+    <script>
+function men(){
+    let http = new XMLHttpRequest();
+http.open('GET', 'mens.json', true);
+http.send();
+http.onload = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        let product = JSON.parse(this.responseText);
+        let out = '';
+        for (let item of product) {
+            out += ` <div class="aa">
+                    <img  id="dd" src="${item.url}">
+                    <p class="df">
+                        ${item.Title}
+                    </p>
+                    <p class="we">
+                        <span>${item.Price}</span>
+                        <span>$</span>
+                    </p>
+                    <button id= "rt">Add to cart</button>
+                </div> `;
+        }
+        document.getElementById('main').innerHTML = out;
+    }
+}
+}
+function women(){
+    let http = new XMLHttpRequest();
+http.open('GET', 'women.json', true);
+http.send();
+http.onload = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        let product = JSON.parse(this.responseText);
+        let out = '';
+        for (let item of product) {
+            out += ` <div class="aa">
+                    <img  id="dd" src="${item.url}">
+                    <p class="df">
+                        ${item.Title}
+                    </p>
+                    <p class="we">
+                        <span>${item.Price}</span>
+                        <span>$</span>
+                    </p>
+                    <button id= "rt">Add to cart</button>
+                </div> `;
+        }
+        document.getElementById('main').innerHTML = out;
+    }
+}
+}
+function kids(){
+    let http = new XMLHttpRequest();
+http.open('GET', 'kids.json', true);
+http.send();
+http.onload = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        let product = JSON.parse(this.responseText);
+        let out = '';
+        for (let item of product) {
+            out += ` <div class="aa">
+                    <img  id="dd" src="${item.url}">
+                    <p class="df">
+                        ${item.Title}
+                    </p>
+                    <p class="we">
+                        <span>${item.Price}</span>
+                        <span>$</span>
+                    </p>
+                    <button id= "rt">Add to cart</button>
+                </div> `;
+        }
+        document.getElementById('main').innerHTML = out;
+    }
+}
+}
+men();
+    </script>
+</body>
+</html>
